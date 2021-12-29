@@ -8,9 +8,6 @@ endif
 
 let g:loaded_dashboard = 1
 
-" Buffer Name
-keepalt file Dashboard
-
 if !get(g:, 'dashboard_disable_at_vimenter') && (!has('nvim') || has('nvim-0.3.5'))
   " Only for Nvim v0.3.5+: https://github.com/neovim/neovim/issues/9885
   set shortmess+=I
@@ -34,6 +31,11 @@ let g:preview_pipeline_command = get(g:,'dashboard_preview_pipeline','')
 let s:disable_statusline = get(g:,'dashboard_disable_statusline',0)
 
 augroup dashboard
+  " BufferName
+  if !argc() && line2byte('$') == -1
+    keepalt file Dashboard
+  endif
+  
   autocmd!
   autocmd VimEnter * nested call s:loaded_dashboard()
   if s:disable_statusline
