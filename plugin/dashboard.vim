@@ -8,6 +8,9 @@ endif
 
 let g:loaded_dashboard = 1
 
+" Buffer Name
+keepalt file Dashboard
+
 if !get(g:, 'dashboard_disable_at_vimenter') && (!has('nvim') || has('nvim-0.3.5'))
   " Only for Nvim v0.3.5+: https://github.com/neovim/neovim/issues/9885
   set shortmess+=I
