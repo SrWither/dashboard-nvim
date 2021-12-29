@@ -45,7 +45,7 @@ augroup dashboard
   autocmd WinLeave * call dashboard#close_preview()
   autocmd User TelescopeFindPre,ClapOnEnter call dashboard#close_preview()
 
-  autocmd VimResized * if &filetype ==# 'dashboard' | call dashboard#instance(0) | endif
+  autocmd VimResized * if &filetype ==# 'dashboard' | call dashboard#instance(0) | keepalt file Dashboard | endif
 augroup END
 
 function! s:loaded_dashboard() abort
